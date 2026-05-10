@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-CN"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Her Voices | 学姐的跨洋观察&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 基础样式 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body { background: #f8f9ff; color: #333; line-height: 1.6; padding: 20px; min-height: 100vh; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.container { max-width: 1000px; margin: 0 auto; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 头部 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>header { text-align: center; margin: 30px 0 50px; padding: 30px; background: white; border-radius: 20px; box-shadow: 0 5px 20px rgba(124, 58, 237, 0.08); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>h1 { color: #7c3aed; font-size: 2.5rem; margin-bottom: 10px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.subtitle { color: #666; font-size: 1.2rem; margin-bottom: 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.instruction { color: #888; font-size: 0.95rem; max-width: 700px; margin: 0 auto; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 卡片网格 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-bottom: 50px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; border-radius: 16px; padding: 25px; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.05); border: 2px solid #e9e1ff; transition: all 0.3s ease; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.12); border-color: #c4b5fd; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card.active { border-color: #7c3aed; box-shadow: 0 10px 25px rgba(124, 58, 237, 0.15); }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 卡片内部 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-top { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-icon { font-size: 2.2rem; color: #7c3aed; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-tag { background: #f0e9ff; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-question { font-size: 1.1rem; color: #444; font-weight: 500; margin-bottom: 20px; padding-left: 10px; border-left: 3px solid #c4b5fd; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 卡片内容（默认隐藏） */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease; border-top: 1px dashed #eee; padding-top: 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card.active .card-content { max-height: 1500px; opacity: 1; padding-top: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-part { margin-bottom: 20px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-part h4 { color: #7c3aed; font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.content-part p { color: #555; font-size: 0.95rem; line-height: 1.7; padding-left: 24px; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.anonymous { text-align: right; font-style: italic; color: #888; font-size: 0.9rem; margin-top: 20px; padding-top: 10px; border-top: 1px dashed #eee; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 页脚 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>footer { text-align: center; padding: 25px; color: #666; font-size: 0.95rem; background: white; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>footer a { color: #7c3aed; text-decoration: none; font-weight: 500; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>footer a:hover { text-decoration: underline; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.heart { color: #ff6b8b; margin: 0 5px; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* 手机适配 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 768px) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>.cards-grid { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>h1 { font-size: 2rem; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1&gt;&lt;i class="fas fa-globe-americas"&gt;&lt;/i&gt; Her Voices&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="subtitle"&gt;聆听学姐们在海外的观察：关于性别、学术与自我成长的真实瞬间&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="instruction"&gt;点击下方任意卡片，展开学姐的完整分享。她们探讨了现状、困境与进步空间。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;main&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="cards-grid" id="cardsContainer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;!-- 卡片会由JavaScript动态生成到这里 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;这些声音不仅是对现状的记录，更是女性联结（Sisterhood）的力量。&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;由 &lt;a href="https://your-website.com"&gt;SHERO社团&lt;/a&gt; 发起与维护&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Made with &lt;i class="fas fa-heart heart"&gt;&lt;/i&gt; for empowering voices.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====== 这里是网站的所有数据，你可以随意修改和添加 ======</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const allData = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 1,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>icon: 'fas fa-graduation-cap',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tag: '学术话语权',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: '在国外的课堂上，作为女性，发言的感觉和国内有什么不同？',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>situation: '这里的小组讨论，教授会刻意确保每个人都有发言时间。女生主动挑战教授观点的情况比国内多得多，而且很少被贴上“爱出风头”的标签。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dilemma: '但隐形压力在于，你需要快速组织逻辑严谨的语言。沉默有时会被理解为“没想法”或“不参与”，而不是“含蓄”。初期语言和文化障碍会放大这种压力。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>space: '进步在于，我学会了提前准备“发言要点”，并接受了自己的口音。系统层面，更多课程引入“匿名提问”和“书面反馈”渠道，对非母语者更友好。'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 2,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>icon: 'fas fa-shield-alt',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tag: '安全与支持',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: '在人身安全与性骚扰防范上，你感受到的系统有何不同？',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>situation: '学校有非常清晰的性骚扰举报流程和独立办公室。夜间有免费的护送服务。宿舍和图书馆的卫生间里都有免费提供的卫生巾。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dilemma: '困境在于，这些资源的信息差很大。新生往往不知道如何有效使用。而且，处理过程可能漫长且心理消耗大。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>space: '学生自发组织了很多互助小组。我觉得最大的进步空间是建立更“去创伤化”的支持流程，以及加强 bystander（旁观者）干预培训。'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 3,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>icon: 'fas fa-briefcase',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tag: '职业发展',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: '在求职时，你感受到的性别期待有变化吗？',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>situation: '招聘方在表面上绝对政治正确。很多科技公司有“女性工程师”项目，提供专属实习机会。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dilemma: '隐形天花板依然存在。在社交时，你会发现高层女性还是少。作为亚洲女性，还可能面临“安静、技术好但不擅领导”的刻板印象。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>space: '我主动寻找女性导师，并加入了行业女性社群。系统层面，需要更多公司公开高管性别比例和薪酬数据。'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>},</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{</p>
+<p class="p1"><span class="Apple-converted-space">                </span>id: 4,</p>
+<p class="p1"><span class="Apple-converted-space">                </span>icon: 'fas fa-heart',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>tag: '文化日常',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>question: '在日常生活中，“女性”这个标签带来的隐形规则，有何不同？',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>situation: '最大的感受是“穿衣自由”的真实存在。你可以穿任何喜欢的衣服去上课、去派对，而很少受到评判。对多元审美的包容度也更高。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>dilemma: '新的困境可能是“过度个人主义”。每个人都专注于自己的事，有时会感到孤独，缺乏国内那种紧密的、互相关照的女性友谊。',</p>
+<p class="p1"><span class="Apple-converted-space">                </span>space: '我开始有意识地建立自己的小社群，也学会了主动寻求心理咨询。进步空间在于，如何在倡导个体自由的同时，也能构建有深度的、支持性的女性共同体。'</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 你可以在这里继续添加新的学姐条目，完全复制上面大括号{}里的格式即可。</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// 记得把 id 号改成 5, 6, 7... 以此类推。</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====== 数据结束 ======</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// ====== 以下是网站运行逻辑，你不需要修改 ======</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.addEventListener('DOMContentLoaded', function () {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const container = document.getElementById('cardsContainer');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>allData.forEach(item =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const card = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.className = 'card';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="card-icon"&gt;&lt;i class="${item.icon}"&gt;&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;span class="card-tag"&gt;${item.tag}&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-question"&gt;${item.question}&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;div class="card-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="content-part"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4&gt;&lt;i class="fas fa-eye"&gt;&lt;/i&gt; 现状&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;${item.situation}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="content-part"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4&gt;&lt;i class="fas fa-exclamation-triangle"&gt;&lt;/i&gt; 困境&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;${item.dilemma}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="content-part"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;h4&gt;&lt;i class="fas fa-seedling"&gt;&lt;/i&gt; 进步空间&lt;/h4&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;p&gt;${item.space}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;div class="anonymous"&gt;—— 一位匿名的海外学姐&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>card.addEventListener('click', function () {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 关闭其他已打开的卡片</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (!this.classList.contains('active')) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>document.querySelectorAll('.card.active').forEach(otherCard =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>otherCard.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>// 切换当前卡片的开关</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>this.classList.toggle('active');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">                </span>container.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
